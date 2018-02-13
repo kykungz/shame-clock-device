@@ -11,18 +11,27 @@ router.get('/schedule', function(req, res, next) {
   res.send(alarm.schedule)
 })
 
-router.get('/testadd' , function(req, res, next) {
+router.get('/testset' , function(req, res, next) {
   try {
-    const result = alarm.add(new Date((new Date().getTime()) + 10 * 1000))
+    const result = alarm.set(new Date((new Date().getTime()) + 3 * 1000))
+    res.status(200).send(result)
+  } catch (err) {
+    res.status(500).send({ error: err })
+  }
+})
+
+router.get('/testdone' , function(req, res, next) {
+  try {
+    const result = alarm.done()
     res.status(200).send(result)
   } catch (err) {
     res.status(500).send(err)
   }
 })
 
-router.post('/add' , function(req, res, next) {
+router.post('/set' , function(req, res, next) {
   try {
-    const result = alarm.add(req.body.date)
+    const result = alarm.set(req.body.date)
     res.status(200).send({ result })
   } catch (err) {
     res.status(500).send({ err })
