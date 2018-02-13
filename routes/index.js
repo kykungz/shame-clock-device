@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/schedule', function(req, res, next) {
-  res.send(alarm.schedule)
+  res.send({ schedule: alarm.schedule })
 })
 
 router.get('/testset' , function(req, res, next) {
