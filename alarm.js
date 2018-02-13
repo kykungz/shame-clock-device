@@ -8,7 +8,7 @@ class Alarm {
       const timer = setTimeout(() => {
         console.log('alarrrrrm')
       }, date - new Date())
-      this.schedule.push({ date, timer: timer })
+      this.schedule.push({ date })
       return { date }
     } catch (err) {
       throw err
