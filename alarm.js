@@ -15,6 +15,7 @@ class Alarm {
       'ต้น',
       'จักร'
     ]
+    this.playsound.bind(this)
   }
 
   playsound () {
@@ -44,6 +45,7 @@ class Alarm {
 
   set (date) {
     try {
+      console.log(date)
       const timer = setTimeout(async () => {
         console.log('alarrrrrm')
         this.playing = true
@@ -58,9 +60,10 @@ class Alarm {
         this.playing = false
       }, date - new Date())
 
+      if (this.audio) this.audio.kill()
       this.timer = timer
       this.schedule = date
-      return { date }
+      return date
     } catch (err) {
       throw err
     }
