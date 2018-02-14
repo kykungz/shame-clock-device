@@ -32,7 +32,7 @@ class Alarm {
 
       return date
     }
-    return null
+    return 'No schedule set'
   }
 
   set (date) {
