@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/schedule', function(req, res, next) {
-  res.send({ schedule: alarm.schedule })
+  res.send({ date: alarm.schedule })
 })
 
 router.get('/victims', function(req, res, next) {
