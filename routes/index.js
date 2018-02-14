@@ -11,6 +11,10 @@ router.get('/schedule', function(req, res, next) {
   res.send({ schedule: alarm.schedule })
 })
 
+router.get('/victims', function(req, res, next) {
+  res.send({ victims: alarm.victims })
+})
+
 router.get('/testset' , function(req, res, next) {
   try {
     const result = alarm.set(new Date((new Date().getTime()) + 3 * 1000))

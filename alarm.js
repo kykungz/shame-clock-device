@@ -1,10 +1,12 @@
 const player = require('play-sound')(opts = {})
+const fs = require('fs')
 
 class Alarm {
   constructor () {
     this.schedule = null
     this.playing = false
     this.audio = null
+    this.victims = fs.readdirSync('sounds').map(v => v.slice(0, -4))
   }
 
   playsound () {
