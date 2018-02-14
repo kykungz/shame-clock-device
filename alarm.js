@@ -6,6 +6,7 @@ class Alarm {
     this.schedule = null
     this.playing = false
     this.audio = null
+    this.timer = null
     // this.victims = fs.readdirSync('sounds').map(v => v.slice(0, -4))
     this.victims = [
       'ออมสิน',
@@ -33,10 +34,9 @@ class Alarm {
       this.audio = null
       this.playing = false
       // clear loop
-      const date = this.schedule.date
-      clearTimeout(this.schedule.timer)
+      const date = this.schedule
+      clearTimeout(this.timer)
       this.schedule = null
-
       return date
     }
     return 'No schedule set'
@@ -58,10 +58,8 @@ class Alarm {
         this.playing = false
       }, date - new Date())
 
-      this.schedule = {
-        date: date,
-        timer: timer
-      }
+      this.timer = timer
+      this.schedule = date
       return { date }
     } catch (err) {
       throw err
